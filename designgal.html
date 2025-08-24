@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ASTROLAB - Creative Design Studio</title>
+  <link rel="icon" href="img/logo.png"  type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    /* Global Reset */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #111, #2a2a2a);
+      color: #fff;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+      position: relative;
+    }
+
+    /* Floating Orbs */
+    .orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.4;
+      background: red;
+      animation: float 20s infinite alternate ease-in-out;
+      z-index: 0;
+    }
+    .orb:nth-child(1) { width: 300px; height: 300px; top: 10%; left: 10%; animation-duration: 18s; }
+    .orb:nth-child(2) { width: 250px; height: 250px; top: 40%; right: 15%; animation-duration: 22s; }
+    .orb:nth-child(3) { width: 200px; height: 200px; bottom: 15%; left: 20%; animation-duration: 26s; }
+
+    @keyframes float {
+      from { transform: translateY(0px) translateX(0px); }
+      to { transform: translateY(-60px) translateX(40px); }
+    }
+
+    /* Navbar */
+    header {
+      position: fixed;
+      top: 0; left: 0; width: 100%;
+      background: rgba(0,0,0,0.7);
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+    }
+    header h1 { color: #ff4444; font-size: 24px; letter-spacing: 2px; }
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    nav a:hover { color: #ff4444; }
+
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 100px 20px;
+      z-index: 1;
+      position: relative;
+    }
+    .hero h2 { font-size: 48px; margin-bottom: 20px; color: #ff4444; }
+    .hero p { font-size: 20px; max-width: 600px; margin: auto; }
+
+    /* Services */
+    .services {
+      padding: 80px 20px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+    .services h2 { font-size: 36px; margin-bottom: 40px; color: #ff4444; }
+    .service-cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    .service-card {
+      background: #1e1e1e;
+      padding: 20px;
+      border-radius: 12px;
+      width: 250px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+      transition: transform 0.3s;
+    }
+    .service-card:hover { transform: translateY(-5px); }
+    .service-card i { font-size: 40px; margin-bottom: 15px; color: #ff4444; }
+
+    /* Gallery */
+    .gallery {
+      padding: 80px 20px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+    .gallery h2 { font-size: 36px; margin-bottom: 40px; color: #ff4444; }
+    .gallery-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+    }
+    .gallery-container img {
+      width: 100%;
+      border-radius: 12px;
+      transition: transform 0.3s;
+      cursor: pointer;
+    }
+    .gallery-container img:hover { transform: scale(1.05); }
+
+    /* Modal Image Viewer */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.9);
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
+    }
+    .modal img {
+      max-width: 90%;
+      max-height: 80%;
+      border-radius: 12px;
+    }
+    .modal span {
+      position: absolute;
+      top: 20px; right: 40px;
+      font-size: 40px;
+      color: white;
+      cursor: pointer;
+    }
+
+    /* Contact Form */
+    .contact {
+      padding: 80px 20px;
+      text-align: center;
+      z-index: 1;
+      position: relative;
+    }
+    .contact h2 { font-size: 36px; margin-bottom: 40px; color: #ff4444; }
+    form {
+      max-width: 500px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    form input, form textarea {
+      padding: 15px;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+    }
+    form button {
+      padding: 15px;
+      background: #ff4444;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      background: rgba(0,0,0,0.8);
+      margin-top: 40px;
+      z-index: 1;
+      position: relative;
+    }
+    footer .socials a {
+      color: #fff;
+      margin: 0 10px;
+      font-size: 22px;
+      transition: color 0.3s;
+    }
+    footer .socials a:hover { color: #ff4444; }
+
+    /* Floating WhatsApp */
+    .whatsapp {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25d366;
+      color: white;
+      font-size: 28px;
+      padding: 15px;
+      border-radius: 50%;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+      z-index: 1500;
+    }
+    .whatsapp:hover { background: #1ebe5d; }
+  </style>
+</head>
+<body>
+  <!-- Floating Orbs -->
+  <div class="orb"></div>
+  <div class="orb"></div>
+  <div class="orb"></div>
+
+  <!-- Navbar -->
+  <header>
+    <img src="img/logo.png" alt="logo" style="height:40px; scale: 2.2;">
+    <nav>
+      <a href="#hero">Home</a>
+      <a href="#services">Services</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="hero">
+    <div>
+      <h2>Welcome to ASTROLAB</h2>
+      <p>We bring your ideas to life with modern, creative, and professional designs.</p>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="services" id="services">
+    <h2>Our Services</h2>
+    <div class="service-cards">
+      <div class="service-card"><i class="fas fa-paint-brush"></i><h3>Logo Design</h3><p>Unique and memorable brand logos.</p></div>
+      <div class="service-card"><i class="fas fa-pen"></i><h3>Flyer Design</h3><p>Flyers for events & promotions.</p></div>
+      <div class="service-card"><i class="fas fa-image"></i><h3>Poster Design</h3><p>Eye-catching posters for events & businesses.</p></div>
+      <div class="service-card"><i class="fas fa-bullhorn"></i><h3>Marketing</h3><p>Creative content for social media & ads.</p></div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section class="gallery" id="gallery">
+    <h2>Our Designs</h2>
+    <div class="gallery-container">
+      <img src="img/service.png" alt="Design 1">
+      <img src="img/happy new month.jpg" alt="Design 2">
+      <img src="img/July.png" alt="Design 3">
+      <img src="img/youknow.png" alt="Design 4">
+      <img src="img/Majestic.png" alt="Design 5">
+      <img src="img/goddey.jpg" alt="Design 6">
+      <img src="img/Djan motors flyer 4.1.png" alt="Design 7">
+      <img src="img/Goddey2.png" alt="Design 8">
+      <img src="img/pastry.png" alt="Design 9">
+      <img src="img/shawarma.jpg" alt="Design 10">
+    </div>
+  </section>
+
+<!-- Contact -->
+<section class="contact" id="contact">
+  <h2>Contact Us</h2>
+  <form onsubmit="sendEmail(event)">
+    <input type="text" id="name" placeholder="Your Name" required>
+    <input type="email" id="email" placeholder="Your Email" required>
+    <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</section>
+
+<script>
+  function sendEmail(e) {
+    e.preventDefault();
+
+    // Collect data from form
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const message = document.getElementById("message").value;
+
+    // Build subject & body
+    const subject = encodeURIComponent("New message from " + name);
+    const body = encodeURIComponent(
+      "From: " + name + " (" + email + ")\n\n" + message
+    );
+
+    // Open user’s email client
+    window.location.href = `mailto:astrolabscig@gmail.com?subject=${subject}&body=${body}`;
+  }
+</script>
+
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 ASTROLAB. All Rights Reserved.</p>
+    <div class="socials">
+      <a href="https://facebook.com/astrolabscig" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://x.com/astrolabscig" target="_blank"><i class="fab fa-twitter"></i></a>
+      <a href="https://www.instagram.com/astrolabscig/" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="www.linkedin.com/in/joseph-afful-911171363" target="_blank"><i class="fab fa-linkedin"></i></a>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Floating -->
+  <a href="https://wa.me/233555177079" target="_blank" class="whatsapp"><i class="fab fa-whatsapp"></i></a>
+
+  <!-- Modal -->
+  <div class="modal" id="modal">
+    <span id="close">&times;</span>
+    <img id="modal-img" src="">
+  </div>
+
+  <script>
+    // Modal for gallery images
+    const modal = document.getElementById("modal");
+    const modalImg = document.getElementById("modal-img");
+    const closeBtn = document.getElementById("close");
+    document.querySelectorAll(".gallery-container img").forEach(img => {
+      img.onclick = () => {
+        modal.style.display = "flex";
+        modalImg.src = img.src;
+      }
+    });
+    closeBtn.onclick = () => { modal.style.display = "none"; };
+    modal.onclick = (e) => { if(e.target === modal) modal.style.display = "none"; };
+  </script>
+</body>
+</html>
