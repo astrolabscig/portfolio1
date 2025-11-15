@@ -1,344 +1,598 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Explore ASTROLAB’s modern design gallery. Logos, posters, graphics & more.">
-  <meta name="google-adsense-account" content="ca-pub-2025238371347010">
-  <!-- Open Graph Tags for WhatsApp & Social Media -->
-  <meta property="og:title" content="ASTROLAB — Creative Design Studio">
-  <meta property="og:description" content="Discover our portfolio featuring logos, posters, flyers, and social media designs.">
-  <meta property="og:url" content="https://portfolio1-one-pi.vercel.app/">
-  <meta property="og:type" content="website">
-  
-  <!-- Replace this image with your preview graphic (min. 300×200px; ≤600KB) -->
-  <meta property="og:image" content="https://portfolio1-one-pi.vercel.app/images/astrolab-preview.png">
-  <meta property="og:image:type" content="image/png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore ASTROLAB’s modern design gallery. Logos, posters, flyers, graphics, and creative marketing content.">
+    <!-- Google AdSense and Open Graph tags preserved -->
+    <meta name="google-adsense-account" content="ca-pub-2025238371347010">
+    <meta property="og:title" content="ASTROLAB — Creative Design Studio">
+    <meta property="og:description" content="Discover our portfolio featuring logos, posters, flyers, and social media designs.">
+    <meta property="og:url" content="https://portfolio1-one-pi.vercel.app/">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://portfolio1-one-pi.vercel.app/images/astrolab-preview.png" onerror="this.onerror=null;this.src='https://placehold.co/1200x630/1e1e1e/ff4444?text=ASTROLAB+Design'">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
 
-  <title>ASTROLAB - Creative Design Studio</title>
-  <link rel="icon" href="img/favicon.ico"  type="image/x-icon">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <style>
-    /* Global Reset */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #111, #2a2a2a);
-      color: #fff;
-      overflow-x: hidden;
-      scroll-behavior: smooth;
-      position: relative;
-    }
+    <title>ASTROLAB - Creative Design Studio</title>
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-    /* Floating Orbs */
-    .orb {
-      position: fixed;
-      border-radius: 50%;
-      filter: blur(80px);
-      opacity: 0.4;
-      background: red;
-      animation: float 20s infinite alternate ease-in-out;
-      z-index: 0;
+    <!-- Schema.org Markup for Organization (CRITICAL for SEO) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "ASTROLAB Creative Design Studio",
+      "url": "https://portfolio1-one-pi.vercel.app/",
+      "logo": "https://portfolio1-one-pi.vercel.app/img/logo.png",
+      "sameAs": [
+        "https://facebook.com/astrolabscig",
+        "https://x.com/astrolabscig",
+        "https://www.instagram.com/astrolabscig/",
+        "www.linkedin.com/in/joseph-afful-911171363"
+      ]
     }
-    .orb:nth-child(1) { width: 300px; height: 300px; top: 10%; left: 10%; animation-duration: 18s; }
-    .orb:nth-child(2) { width: 250px; height: 250px; top: 40%; right: 15%; animation-duration: 22s; }
-    .orb:nth-child(3) { width: 200px; height: 200px; bottom: 15%; left: 20%; animation-duration: 26s; }
+    </script>
+    
+    <style>
+        /* CSS Variables for easy theme management */
+        :root {
+            --primary-bg: #111111;
+            --secondary-bg: #2a2a2a;
+            --accent-color: #ff4444;
+            --text-color: #fff;
+            --card-bg: #1e1e1e;
+        }
 
-    @keyframes float {
-      from { transform: translateY(0px) translateX(0px); }
-      to { transform: translateY(-60px) translateX(40px); }
-    }
+        /* Global Reset */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, var(--primary-bg), var(--secondary-bg));
+            color: var(--text-color);
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
 
-    /* Navbar */
-    header {
-      position: fixed;
-      top: 0; left: 0; width: 100%;
-      background: rgba(0,0,0,0.7);
-      padding: 15px 30px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 1000;
-    }
-    header h1 { color: #ff4444; font-size: 24px; letter-spacing: 2px; }
-    nav a {
-      margin: 0 15px;
-      text-decoration: none;
-      color: #fff;
-      font-weight: bold;
-      transition: color 0.3s;
-    }
-    nav a:hover { color: #ff4444; }
+        /* Floating Orbs (Refined) */
+        .orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(100px); /* Increased blur for smoother effect */
+            opacity: 0.3;
+            background: var(--accent-color);
+            animation: float 25s infinite alternate ease-in-out;
+            z-index: 0;
+        }
+        .orb:nth-child(1) { width: 350px; height: 350px; top: 5%; left: 5%; animation-duration: 20s; }
+        .orb:nth-child(2) { width: 300px; height: 300px; top: 50%; right: 10%; background: #44aaff; animation-duration: 28s; } /* Second orb in blue for contrast */
+        .orb:nth-child(3) { width: 250px; height: 250px; bottom: 10%; left: 25%; animation-duration: 22s; }
 
-    /* Hero Section */
-    .hero {
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 100px 20px;
-      z-index: 1;
-      position: relative;
-    }
-    .hero h2 { font-size: 48px; margin-bottom: 20px; color: #ff4444; }
-    .hero p { font-size: 20px; max-width: 600px; margin: auto; }
+        @keyframes float {
+            0% { transform: translate(0, 0); }
+            50% { transform: translate(-50px, -70px); }
+            100% { transform: translate(0, 0); }
+        }
 
-    /* Services */
-    .services {
-      padding: 80px 20px;
-      text-align: center;
-      position: relative;
-      z-index: 1;
-    }
-    .services h2 { font-size: 36px; margin-bottom: 40px; color: #ff4444; }
-    .service-cards {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-    }
-    .service-card {
-      background: #1e1e1e;
-      padding: 20px;
-      border-radius: 12px;
-      width: 250px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-      transition: transform 0.3s;
-    }
-    .service-card:hover { transform: translateY(-5px); }
-    .service-card i { font-size: 40px; margin-bottom: 15px; color: #ff4444; }
+        /* Navbar */
+        header {
+            position: sticky; /* Sticky is better than fixed for modern web */
+            top: 0; left: 0; width: 100%;
+            background: rgba(0,0,0,0.85);
+            backdrop-filter: blur(8px); /* Modern blur effect */
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+        }
+        .logo { 
+            color: var(--accent-color); 
+            font-size: 26px; 
+            font-weight: 900;
+            letter-spacing: 3px; 
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        .logo i { margin-right: 10px; font-size: 30px; }
+        
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 600;
+            transition: color 0.3s, transform 0.2s;
+            position: relative;
+        }
+        nav a:hover { color: var(--accent-color); transform: translateY(-2px); }
+        
+        /* Mobile Menu Button - Hidden on desktop */
+        .mobile-menu-btn { display: none; background: none; border: none; color: white; font-size: 24px; cursor: pointer; }
 
-    /* Gallery */
-    .gallery {
-      padding: 80px 20px;
-      text-align: center;
-      position: relative;
-      z-index: 1;
-    }
-    .gallery h2 { font-size: 36px; margin-bottom: 40px; color: #ff4444; }
-    .gallery-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 15px;
-    }
-    .gallery-container img {
-      width: 100%;
-      border-radius: 12px;
-      transition: transform 0.3s;
-      cursor: pointer;
-    }
-    .gallery-container img:hover { transform: scale(1.05); }
+        /* Mobile Nav Menu - Hidden on desktop */
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 65px;
+            left: 0;
+            width: 100%;
+            background: rgba(0,0,0,0.95);
+            flex-direction: column;
+            text-align: center;
+            padding: 20px 0;
+            z-index: 999;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.6);
+        }
+        .mobile-nav a {
+            padding: 12px 0;
+            display: block;
+            font-size: 18px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .mobile-nav a:last-child { border-bottom: none; }
 
-    /* Modal Image Viewer */
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.9);
-      justify-content: center;
-      align-items: center;
-      z-index: 2000;
-    }
-    .modal img {
-      max-width: 90%;
-      max-height: 80%;
-      border-radius: 12px;
-    }
-    .modal span {
-      position: absolute;
-      top: 20px; right: 40px;
-      font-size: 40px;
-      color: white;
-      cursor: pointer;
-    }
+        /* Hero Section */
+        .hero {
+            height: 90vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 100px 20px;
+            position: relative;
+            z-index: 1;
+        }
+        .hero h2 { 
+            font-size: clamp(36px, 8vw, 64px); /* Responsive typography */
+            margin-bottom: 20px; 
+            color: var(--accent-color); 
+            font-weight: 900;
+            text-shadow: 0 0 15px rgba(255, 68, 68, 0.5);
+        }
+        .hero p { font-size: clamp(16px, 3vw, 24px); max-width: 800px; margin: 0 auto 30px; color: #ccc; }
+        .hero .cta-button {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--accent-color);
+            color: var(--primary-bg);
+            font-weight: bold;
+            border-radius: 50px;
+            text-decoration: none;
+            box-shadow: 0 8px 20px rgba(255, 68, 68, 0.4);
+            transition: all 0.3s;
+        }
+        .hero .cta-button:hover {
+            background: #ff6666;
+            transform: scale(1.05) translateY(-3px);
+            box-shadow: 0 12px 25px rgba(255, 68, 68, 0.6);
+        }
 
-    /* Contact Form */
-    .contact {
-      padding: 80px 20px;
-      text-align: center;
-      z-index: 1;
-      position: relative;
-    }
-    .contact h2 { font-size: 36px; margin-bottom: 40px; color: #ff4444; }
-    form {
-      max-width: 500px;
-      margin: auto;
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
-    form input, form textarea {
-      padding: 15px;
-      border-radius: 8px;
-      border: none;
-      outline: none;
-    }
-    form button {
-      padding: 15px;
-      background: #ff4444;
-      color: white;
-      font-weight: bold;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-    }
+        /* Main Content Sections */
+        main section {
+            padding: 100px 20px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        main h2 { 
+            font-size: clamp(28px, 5vw, 48px); 
+            margin-bottom: 50px; 
+            color: var(--accent-color); 
+            font-weight: 700;
+        }
+        
+        /* Services */
+        .service-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: auto;
+        }
+        .service-card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+            transition: transform 0.4s, box-shadow 0.4s;
+            border: 1px solid rgba(255, 68, 68, 0.2);
+        }
+        .service-card:hover { 
+            transform: translateY(-8px); 
+            box-shadow: 0 15px 30px rgba(255, 68, 68, 0.3);
+        }
+        .service-card i { 
+            font-size: 50px; 
+            margin-bottom: 20px; 
+            color: var(--accent-color); 
+            text-shadow: 0 0 10px rgba(255, 68, 68, 0.5);
+        }
+        .service-card h3 { font-size: 22px; margin-bottom: 10px; }
+        .service-card p { color: #aaa; }
 
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 30px 20px;
-      background: rgba(0,0,0,0.8);
-      margin-top: 40px;
-      z-index: 1;
-      position: relative;
-    }
-    footer .socials a {
-      color: #fff;
-      margin: 0 10px;
-      font-size: 22px;
-      transition: color 0.3s;
-    }
-    footer .socials a:hover { color: #ff4444; }
 
-    /* Floating WhatsApp */
-    .whatsapp {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #25d366;
-      color: white;
-      font-size: 28px;
-      padding: 15px;
-      border-radius: 50%;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-      z-index: 1500;
-    }
-    .whatsapp:hover { background: #1ebe5d; }
-  </style>
+        /* Gallery (Optimized Grid) */
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            max-width: 1400px;
+            margin: auto;
+        }
+        .gallery-container figure {
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.5);
+            transition: box-shadow 0.3s;
+            cursor: pointer;
+        }
+        .gallery-container figure:hover {
+            box-shadow: 0 12px 30px rgba(255, 68, 68, 0.4);
+        }
+        .gallery-container img {
+            width: 100%;
+            height: 350px; /* Fixed height for uniform display */
+            object-fit: cover; /* Ensures images fill the frame */
+            display: block;
+            transition: transform 0.4s;
+        }
+        .gallery-container img:hover { transform: scale(1.1); }
+
+        /* Modal Image Viewer */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.95);
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            animation: fadeIn 0.3s;
+        }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(255, 68, 68, 0.7);
+        }
+
+        .modal span {
+            position: absolute;
+            top: 20px; right: 40px;
+            font-size: 50px;
+            color: var(--text-color);
+            opacity: 0.8;
+            cursor: pointer;
+            transition: opacity 0.2s, transform 0.2s;
+        }
+        .modal span:hover { opacity: 1; transform: rotate(90deg); }
+
+        /* Contact Form */
+        .contact { 
+            background-color: rgba(0, 0, 0, 0.2); 
+            border-top: 1px solid rgba(255, 68, 68, 0.2); 
+        }
+        form {
+            max-width: 600px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding: 30px;
+            background: var(--card-bg);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+        }
+        form input, form textarea {
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #333;
+            background: #151515;
+            color: var(--text-color);
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        form input:focus, form textarea:focus { border-color: var(--accent-color); }
+        
+        #submit-btn {
+            padding: 15px;
+            background: var(--accent-color);
+            color: var(--primary-bg);
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+        }
+        #submit-btn:hover {
+            background: #ff6666;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 68, 68, 0.5);
+        }
+        .form-message {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 8px;
+            background-color: #28a745;
+            color: white;
+            display: none; /* Hidden by default */
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(0,0,0,0.9);
+            border-top: 5px solid var(--accent-color);
+            position: relative;
+            z-index: 1;
+        }
+        footer .socials { margin-top: 20px; }
+        footer .socials a {
+            color: var(--text-color);
+            margin: 0 15px;
+            font-size: 24px;
+            transition: color 0.3s, transform 0.3s;
+        }
+        footer .socials a:hover { color: var(--accent-color); transform: scale(1.2); }
+
+        /* Floating WhatsApp */
+        .whatsapp {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: #25d366;
+            color: white;
+            font-size: 30px;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+            z-index: 1500;
+            transition: background 0.3s, transform 0.3s;
+        }
+        .whatsapp:hover { background: #1ebe5d; transform: scale(1.1); }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            nav { display: none; } /* Hide desktop nav */
+            .mobile-menu-btn { display: block; } /* Show mobile button */
+            .hero { height: 75vh; }
+            main section { padding: 80px 15px; }
+        }
+    </style>
 </head>
 <body>
-  <!-- Floating Orbs -->
-  <div class="orb"></div>
-  <div class="orb"></div>
-  <div class="orb"></div>
+    <!-- Floating Orbs -->
+    <div class="orb"></div>
+    <div class="orb"></div>
+    <div class="orb"></div>
 
-  <!-- Navbar -->
-  <header>
-    <img src="img/logo.png" alt="logo" style="height:40px; scale: 2.2;">
-    <nav>
-      <a href="#hero">Home</a>
-      <a href="#services">Services</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#contact">Contact</a>
+    <!-- Navbar -->
+    <header>
+        <!-- Using an icon and text as a robust logo and link -->
+        <a href="#hero" class="logo">
+            <i class="fas fa-rocket"></i> ASTROLAB
+        </a>
+        <nav id="desktop-nav">
+            <a href="#hero">Home</a>
+            <a href="#services">Services</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <!-- Mobile Menu Toggler -->
+        <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+            <i class="fas fa-bars" id="menu-icon"></i>
+        </button>
+    </header>
+
+    <!-- Mobile Nav Menu (Hidden by default) -->
+    <nav class="mobile-nav" id="mobile-menu">
+        <a href="#hero" onclick="toggleMobileMenu()">Home</a>
+        <a href="#services" onclick="toggleMobileMenu()">Services</a>
+        <a href="#gallery" onclick="toggleMobileMenu()">Gallery</a>
+        <a href="#contact" onclick="toggleMobileMenu()">Contact</a>
     </nav>
-  </header>
 
-  <!-- Hero -->
-  <section class="hero" id="hero">
-    <div>
-      <h2>Welcome to ASTROLAB</h2>
-      <p>We bring your ideas to life with modern, creative, and professional designs.</p>
+    <main>
+        <!-- Hero -->
+        <section class="hero" id="hero">
+            <div>
+                <h2>Welcome to ASTROLAB</h2>
+                <p>We bring your ideas to life with **modern, creative, and professional designs**. Specializing in branding, print media, and digital marketing content.</p>
+                <a href="#gallery" class="cta-button">Explore Our Work <i class="fas fa-arrow-down ml-2"></i></a>
+            </div>
+        </section>
+
+        <!-- Services -->
+        <section class="services" id="services">
+            <h2>Our Core Design Services</h2>
+            <div class="service-cards">
+                <article class="service-card">
+                    <i class="fas fa-paint-brush"></i>
+                    <h3>Logo & Brand Identity</h3>
+                    <p>Unique, scalable, and memorable logos that define your brand's essence and visual language.</p>
+                </article>
+                <article class="service-card">
+                    <i class="fas fa-pen-nib"></i>
+                    <h3>Print Media Design</h3>
+                    <p>High-quality flyers, brochures, and stationery designed to make a tangible impact on your audience.</p>
+                </article>
+                <article class="service-card">
+                    <i class="fas fa-image"></i>
+                    <h3>Poster & Large Format</h3>
+                    <p>Eye-catching, high-resolution posters for events, advertisements, and business promotions.</p>
+                </article>
+                <article class="service-card">
+                    <i class="fas fa-bullhorn"></i>
+                    <h3>Digital Marketing Content</h3>
+                    <p>Creative assets and graphics optimized for social media, paid ads, and other digital platforms.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Gallery -->
+        <section class="gallery" id="gallery">
+            <h2>Recent Projects Showcase</h2>
+            <div class="gallery-container">
+                <!-- Added loading="lazy" for better performance and wrapped images in <figure> for better semantic structure -->
+                <figure onclick="openModal(this)">
+                    <img src="img/service.png" alt="Geometric abstract service banner design" loading="lazy">
+                </figure>
+                <figure onclick="openModal(this)">
+                    <img src="img/happy new month.jpg" alt="Happy New Month greeting card design" loading="lazy">
+                </figure>
+                <figure onclick="openModal(this)">
+                    <img src="img/July.png" alt="Creative July calendar graphic design" loading="lazy">
+                </figure>
+                <figure onclick="openModal(this)">
+                    <img src="img/youknow.png" alt="Minimalist quote social media graphic" loading="lazy">
+                </figure>
+                <figure onclick="openModal(this)">
+                    <img src="img/Majestic.png" alt="Majestic brand logo design concept" loading="lazy">
+                </figure>
+                <figure onclick="openModal(this)">
+                    <img src="img/goddey.jpg" alt="Portrait photography retouch and editing sample" loading="lazy">
+                </figure>
+                <figure onclick="openModal(this)">
+                    <img src="img/Djan motors flyer 4.1.png" alt="Djan Motors car rental promotional flyer" loading="lazy">
+                </figure>
+                <figure onclick="openModal(this)">
+                    <img src="img/Goddey2.png" alt="Goddey personal brand logo variant" loading="lazy">
+                </figure>
+                <figure onclick="openModal(this)">
+                    <img src="img/pastry.png" alt="Modern pastry shop logo and packaging design" loading="lazy">
+                </figure>
+                <figure onclick="openModal(this)">
+                    <img src="img/shawarma.jpg" alt="Shawarma ad graphic for social media" loading="lazy">
+                </figure>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section class="contact" id="contact">
+            <h2>Ready to Start Your Project?</h2>
+            <form id="contact-form">
+                <input type="text" id="name" placeholder="Your Name" required>
+                <input type="email" id="email" placeholder="Your Email" required>
+                <textarea id="message" rows="6" placeholder="Tell us about your design needs..." required></textarea>
+                <button type="submit" id="submit-btn">Send Message</button>
+            </form>
+            <!-- Custom Message Box (Replaced alert/confirm) -->
+            <div class="form-message" id="success-message">Thank you for your message! We'll be in touch soon.</div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 ASTROLAB. Creative Design Studio. All Rights Reserved.</p>
+        <div class="socials">
+            <a href="https://facebook.com/astrolabscig" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="https://x.com/astrolabscig" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/astrolabscig/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="www.linkedin.com/in/joseph-afful-911171363" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating -->
+    <a href="https://wa.me/233555177079" target="_blank" class="whatsapp" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+
+    <!-- Modal -->
+    <div class="modal" id="modal">
+        <span id="close">&times;</span>
+        <img id="modal-img" src="" class="modal-content">
     </div>
-  </section>
 
-  <!-- Services -->
-  <section class="services" id="services">
-    <h2>Our Services</h2>
-    <div class="service-cards">
-      <div class="service-card"><i class="fas fa-paint-brush"></i><h3>Logo Design</h3><p>Unique and memorable brand logos.</p></div>
-      <div class="service-card"><i class="fas fa-pen"></i><h3>Flyer Design</h3><p>Flyers for events & promotions.</p></div>
-      <div class="service-card"><i class="fas fa-image"></i><h3>Poster Design</h3><p>Eye-catching posters for events & businesses.</p></div>
-      <div class="service-card"><i class="fas fa-bullhorn"></i><h3>Marketing</h3><p>Creative content for social media & ads.</p></div>
-    </div>
-  </section>
+    <script>
+        // DOM Elements
+        const modal = document.getElementById("modal");
+        const modalImg = document.getElementById("modal-img");
+        const closeBtn = document.getElementById("close");
+        const contactForm = document.getElementById('contact-form');
+        const successMessage = document.getElementById('success-message');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
 
-  <!-- Gallery -->
-  <section class="gallery" id="gallery">
-    <h2>Our Designs</h2>
-    <div class="gallery-container">
-      <img src="img/service.png" alt="Design 1">
-      <img src="img/happy new month.jpg" alt="Design 2">
-      <img src="img/July.png" alt="Design 3">
-      <img src="img/youknow.png" alt="Design 4">
-      <img src="img/Majestic.png" alt="Design 5">
-      <img src="img/goddey.jpg" alt="Design 6">
-      <img src="img/Djan motors flyer 4.1.png" alt="Design 7">
-      <img src="img/Goddey2.png" alt="Design 8">
-      <img src="img/pastry.png" alt="Design 9">
-      <img src="img/shawarma.jpg" alt="Design 10">
-    </div>
-  </section>
+        /**
+         * Toggles the mobile navigation menu display and updates the icon.
+         */
+        function toggleMobileMenu() {
+            const isMenuOpen = mobileMenu.style.display === 'flex';
+            mobileMenu.style.display = isMenuOpen ? 'none' : 'flex';
+            menuIcon.classList.toggle('fa-bars', isMenuOpen);
+            menuIcon.classList.toggle('fa-times', !isMenuOpen);
+        }
 
-<!-- Contact -->
-<section class="contact" id="contact">
-  <h2>Contact Us</h2>
-  <form onsubmit="sendEmail(event)">
-    <input type="text" id="name" placeholder="Your Name" required>
-    <input type="email" id="email" placeholder="Your Email" required>
-    <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
-    <button type="submit">Send Message</button>
-  </form>
-</section>
+        /**
+         * Opens the modal lightbox with the clicked image source.
+         * @param {HTMLElement} figure The figure element clicked (contains the <img>).
+         */
+        function openModal(figure) {
+            const img = figure.querySelector('img');
+            modal.style.display = "flex";
+            modalImg.src = img.src;
+            modalImg.alt = img.alt;
+        }
 
-<script>
-  function sendEmail(e) {
-    e.preventDefault();
+        // Event listener for closing modal via 'x' button
+        closeBtn.onclick = () => { modal.style.display = "none"; };
+        
+        // Event listener for closing modal by clicking outside the image
+        modal.onclick = (e) => { 
+            if(e.target === modal) {
+                modal.style.display = "none";
+            }
+        };
 
-    // Collect data from form
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const message = document.getElementById("message").value;
+        // Form submission handling (using mailto link for client-side processing)
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
 
-    // Build subject & body
-    const subject = encodeURIComponent("New message from " + name);
-    const body = encodeURIComponent(
-      "From: " + name + " (" + email + ")\n\n" + message
-    );
+            // Simple validation check
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const message = document.getElementById("message").value;
 
-    // Open user’s email client
-    window.location.href = `mailto:astrolabscig@gmail.com?subject=${subject}&body=${body}`;
-  }
-</script>
+            if (name && email && message) {
+                // 1. Show success message
+                successMessage.style.display = 'block';
+                
+                // 2. Clear the form
+                contactForm.reset();
 
+                // 3. Prepare mailto link
+                const subject = encodeURIComponent("New project inquiry from " + name);
+                const body = encodeURIComponent(
+                    "From: " + name + " (" + email + ")\n\n" + message
+                );
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 ASTROLAB. All Rights Reserved.</p>
-    <div class="socials">
-      <a href="https://facebook.com/astrolabscig" target="_blank"><i class="fab fa-facebook"></i></a>
-      <a href="https://x.com/astrolabscig" target="_blank"><i class="fab fa-twitter"></i></a>
-      <a href="https://www.instagram.com/astrolabscig/" target="_blank"><i class="fab fa-instagram"></i></a>
-      <a href="www.linkedin.com/in/joseph-afful-911171363" target="_blank"><i class="fab fa-linkedin"></i></a>
-    </div>
-  </footer>
+                // Open user’s email client after a short delay
+                setTimeout(() => {
+                    window.location.href = `mailto:astrolabscig@gmail.com?subject=${subject}&body=${body}`;
+                    successMessage.style.display = 'none'; // Hide message after redirect attempt
+                }, 1500);
 
-  <!-- WhatsApp Floating -->
-  <a href="https://wa.me/233555177079" target="_blank" class="whatsapp"><i class="fab fa-whatsapp"></i></a>
-
-  <!-- Modal -->
-  <div class="modal" id="modal">
-    <span id="close">&times;</span>
-    <img id="modal-img" src="">
-  </div>
-
-  <script>
-    // Modal for gallery images
-    const modal = document.getElementById("modal");
-    const modalImg = document.getElementById("modal-img");
-    const closeBtn = document.getElementById("close");
-    document.querySelectorAll(".gallery-container img").forEach(img => {
-      img.onclick = () => {
-        modal.style.display = "flex";
-        modalImg.src = img.src;
-      }
-    });
-    closeBtn.onclick = () => { modal.style.display = "none"; };
-    modal.onclick = (e) => { if(e.target === modal) modal.style.display = "none"; };
-  </script>
+            } else {
+                // This block should ideally not be hit due to 'required' attributes
+                console.error("Please fill in all required fields.");
+            }
+        });
+        
+        // Initialize image click handlers for the modal
+        document.querySelectorAll(".gallery-container figure").forEach(figure => {
+            figure.onclick = () => openModal(figure);
+        });
+    </script>
 </body>
 </html>
